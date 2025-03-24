@@ -1,10 +1,17 @@
+import React from 'react';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { PageContent, PageLayout } from './components/Page';
 
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
-}
 
-export default App;
+const App = () => (
+  <Router>
+    <Routes>
+      <Route element={<PageLayout />} path="*">
+        <Route element={<PageContent />} path="*" />
+      </Route>
+    </Routes>
+  </Router>
+  // <Route element={<UserProfile />} path="/user-profile/:userName" />
+);
+
+export { App };
